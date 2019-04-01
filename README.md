@@ -1,4 +1,3 @@
-# SkilStak Lynx Browser Configuration
+# Lynx Browser Configuration
 
-Configuration and helper scripts for the world's fastest browser.
-
+Colors optimized for Solarized Dark
