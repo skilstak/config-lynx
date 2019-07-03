@@ -1,0 +1,7 @@
+#!/bin/bash
+
+line="alias lynx=\"lynx -cfg=$PWD/lynx.cfg -lss=$PWD/lynx.lss\""
+
+[[ -f "$HOME/.bash_aliases" ]] && echo $line >> "$HOME/.bash_aliases" && exit
+[[ -f "$HOME/.bashrc" ]] && echo $line >> "$HOME/.bashrc" && exit
+
