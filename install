@@ -1,7 +1,22 @@
 #!/bin/bash
 
-line="alias lynx=\"lynx -cfg=$PWD/lynx.cfg -lss=$PWD/lynx.lss\""
+echo
+echo 'Consider adding the following to your ~/.bash_aliases'
+echo '(but included in skilstak config/bash already)'
 
-[[ -f "$HOME/.bash_aliases" ]] && echo $line >> "$HOME/.bash_aliases" && exit
-[[ -f "$HOME/.bashrc" ]] && echo $line >> "$HOME/.bashrc" && exit
+echo
 
+read -r -d '' blah <<'EOF'
+if [[ $(which lynx) ]]; then
+  [[ -r ~/repos/config/lynx/lynx.cfg ]]  && lynxcfg="-cfg=$HOME/repos/config/lynx/lynx.cfg"
+  [[ -r ~/repos/private/lynx/lynx.cfg ]]  && lynxcfg="-cfg=$HOME/repos/private/lynx/lynx.cfg"
+  [[ -r ~/.lynx.cfg ]] && lynxcfg="-cfg=$HOME/.lynx.cfg"
+  [[ -r ~/repos/config/lynx/lynx.lss ]]  && lynxlss="-lss=$HOME/repos/config/lynx/lynx.lss"
+  [[ -r ~/repos/private/lynx/lynx.lss ]]  && lynxlss="-lss=$HOME/repos/private/lynx/lynx.lss"
+  [[ -r ~/.lynx.lss ]] && lynxlss="-lss=$HOME/.lynx.lss"
+  alias lynx="lynx '$cfg' '$lss'"
+fi
+EOF
+
+echo "$blah"
+echo
