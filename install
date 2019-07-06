@@ -2,7 +2,7 @@
 
 echo
 echo 'Consider adding the following to your ~/.bash_aliases'
-echo '(but included in skilstak config/bash already)'
+echo '(more at https://gitlab.com/skilstak/config/bash)'
 
 echo
 
